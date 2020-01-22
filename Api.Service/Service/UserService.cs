@@ -17,6 +17,7 @@ namespace Api.Service.Service
             _repository = repository;
         }
 
+
        public async Task<bool> Delete(Guid id)
         {
             return await _repository.DeleteAsync(id);
