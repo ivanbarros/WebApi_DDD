@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Api.CrossCutting;
 using Api.CrossCutting.DependencyInjection;
 using Api.Domain.Security;
@@ -108,7 +107,7 @@ namespace Application
 
 });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -132,8 +131,6 @@ namespace Application
             var option = new RewriteOptions ();
             option.AddRedirect ("^$", "swagger");
             app.UseRewriter (option);
-
-
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
